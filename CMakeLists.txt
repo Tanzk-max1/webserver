@@ -4,5 +4,7 @@ project(webser)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(webser main.cpp
-        cmake-build-debug/EventLoop.h
-        EventLoop.cpp)
+        EventLoop.cpp
+        Channel.h
+        EventLoop.h
+)
