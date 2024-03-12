@@ -44,6 +44,63 @@ public:
     std::shared_ptr<http::HttpConnection> holder();
     void set_holder(std::shared_ptr<http::HttpConnection> holder);
 
+    void set_read_handler(EventCallBack&& read_headler);
+    void set_white_handler(EventCallBack&& white_headler);
+    void set_update_handler(EventCallBack&& update_headler);
+    void set_error_handler(EventCallBack&& error_headler);
 
+    void set_revents(int revents);
+    int& events();
+    void set_events(int events);
+    int last_events();
+    bool update_last_events();
+
+private:
+    int fd_; //  Channel的文件描述符
+    int events_;//  Channel正在监听的事件，关注的事件
+    int revents_;// 返回的就绪事件。实际发生的事件
+    int last_events_;// 上一次的事件
+
+    // weak_ptr是⼀个观测者（不会增加或减少引⽤计数）,同时也没有重载->,和*等运算符 所以不能直接使⽤
+    // 可以通过lock函数得到它的shared_ptr（对象没销毁就返回，销毁了就返回空shared_ptr）
+    // expired函数判断当前对象是否销毁了
+    std::weak_ptr<http::HttpConnection> holder_;
+
+    EventCallBack read_handler_;
+    EventCallBack write_handler_;
+    EventCallBack update_handler_;
+    EventCallBack error_handler_;
 
 };
+
+void Channel::HandleEvents() {
+    events_ = 0;
+    //触发挂起时间，并且没触发可读事件
+    if ((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN))//EPOLLIN（可读事件）和 EPOLLOUT（可写事件),EPOLLHUP是挂起事件
+        //发生了挂起事件并且没有发生可读事件
+    {
+        events_ = 0;//
+        return;
+    }
+    //触发错误事件
+    if (revents_ & EPOLLERR){
+        HandleError();
+        events_ = 0;
+        return;
+    }
+    //触发刻度时间|高优先级可读|对端（客户端）关闭连接
+    if (revents_ & (EPOLLIN | EPOLLPRI | RPOLLRDHUP)){
+        HandleError();
+
+    }
+
+    //触发可写事件
+    if (revents_ & EROLLOUT){
+        HandleWrite();
+
+    }
+
+    //处理更新监听事件(EpollMod)
+    HandleUpdate();
+
+}
