@@ -54,10 +54,49 @@ class LogStream : noncopyable{
     typedef LogStream self;
 public:
     typedef FixedBuffer<kSmallBuffer> Buffer;
-    self & operator << (bool v) {
+    self& operator<< (bool v) {
         buffer_.append(v ? "1" : "0", 1 );
         return  *this;
     }
+
+    self& operator<< (short);
+    self& operator<< (unsigned short);
+    self& operator<< (int);
+    self& operator<< (unsigned int);
+    self& operator<< (long);
+    self& operator<< (unsigned long);
+    self& operator<< (long long);
+    self& operator<< (unsigned long long);
+    self& operator<< (const void*);
+    self& operator<< (float v) {
+            *this << static_cast<double>(v);
+            return *this;
+    };
+    self&operator << (double);
+    self&operator << (long double);
+    self&operator << (char v) {
+            buffer_.append(&v,1);
+            return *this;
+    };
+    self&operator << (const char* str) {
+            if (str)
+                buffer_.append(str,strlen(str));
+            else
+                buffer_.append("(null)",6);
+            return *this;
+    };
+    self&operator << (const unsigned char* str){
+            // reinterpret_cast⽤在任意指针(或引⽤)类型之间的转换
+            return operator<<(reinterpret_cast<const char *>(str));
+    };
+    self&operator << (const std::string& v){
+            buffer_.append(v.c_str(),v.size());
+            return *this;
+    };
+
+    void append(const char* data,int len) {buffer_.append(data,len); }
+    const Buffer& buffer() const { return buffer_; }
+    void resetBuffer() { buffer_.reset(); }
 
 
 private:
