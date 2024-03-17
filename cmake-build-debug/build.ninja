@@ -67,6 +67,18 @@ build CMakeFiles/webser.dir/Epoll.cpp.obj: CXX_COMPILER__webser_unscanned_Debug 
   OBJECT_DIR = CMakeFiles\webser.dir
   OBJECT_FILE_DIR = CMakeFiles\webser.dir
 
+build CMakeFiles/webser.dir/base/LogStream.cpp.obj: CXX_COMPILER__webser_unscanned_Debug D$:/project/webser/base/LogStream.cpp || cmake_object_order_depends_target_webser
+  DEP_FILE = CMakeFiles\webser.dir\base\LogStream.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\webser.dir
+  OBJECT_FILE_DIR = CMakeFiles\webser.dir\base
+
+build CMakeFiles/webser.dir/base/AsyncLogging.cpp.obj: CXX_COMPILER__webser_unscanned_Debug D$:/project/webser/base/AsyncLogging.cpp || cmake_object_order_depends_target_webser
+  DEP_FILE = CMakeFiles\webser.dir\base\AsyncLogging.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\webser.dir
+  OBJECT_FILE_DIR = CMakeFiles\webser.dir\base
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target webser
@@ -75,7 +87,7 @@ build CMakeFiles/webser.dir/Epoll.cpp.obj: CXX_COMPILER__webser_unscanned_Debug 
 #############################################
 # Link the executable webser.exe
 
-build webser.exe: CXX_EXECUTABLE_LINKER__webser_Debug CMakeFiles/webser.dir/main.cpp.obj CMakeFiles/webser.dir/EventLoop.cpp.obj CMakeFiles/webser.dir/Epoll.cpp.obj
+build webser.exe: CXX_EXECUTABLE_LINKER__webser_Debug CMakeFiles/webser.dir/main.cpp.obj CMakeFiles/webser.dir/EventLoop.cpp.obj CMakeFiles/webser.dir/Epoll.cpp.obj CMakeFiles/webser.dir/base/LogStream.cpp.obj CMakeFiles/webser.dir/base/AsyncLogging.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\webser.dir

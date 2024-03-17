@@ -9,4 +9,9 @@ add_executable(webser main.cpp
         EventLoop.h
         Epoll.h
         Epoll.cpp
+        base/LogStream.cpp
+        base/LogStream.h
+        base/noncopyable.h
+        base/AsyncLogging.cpp
+        base/AsyncLogging.h
 )
