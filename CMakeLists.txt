@@ -20,4 +20,10 @@ add_executable(webser main.cpp
         base/CountDownLatch.cpp
         base/Coudition.h
         base/MutexLock.h
+        base/LogFile.cpp
+        base/LogFile.h
+        base/FileUtil.cpp
+        base/FileUtil.h
+        base/Logging.cpp
+        base/Logging.h
 )

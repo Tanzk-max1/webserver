@@ -42,18 +42,22 @@ public:
     }
 
 private:
-    void threadFunc();
+    void threadFunc(); //后端⽇志线程函数，⽤于把缓冲区⽇志写⼊⽂件
+    const int flushInterval_;//超时时间，每隔⼀段时间写⽇志
+    bool running_; ///FIXME:std::atomic<bool> running_;
+    const std::string basename_;    //日志名字
+    Thread thread_;//后端线程，用于将日志写入文件
+
+    std::string basename_;
+    Thread thread_;
     typedef FixedBuffer<kLargeBuffer> Buffer;
     typedef std::vector<std::shared_ptr<Buffer>> BufferVector;
     typedef std::shared_ptr<Buffer> BufferPtr;
-    const int flushInterval_;
-    bool running_;
-    std::string basename_;
-    Thread thread_;
+
     MutexLock mutex_;
     Condition cond_;
     BufferPtr currentBuffer_;
     BufferPtr nextBuffer_;
     BufferVector buffers_;
-    CountDownLatch latch_;
+    CountDownLatch latch_; //倒计时，用于指示日志记录器何时开始工作
 };
