@@ -44,7 +44,7 @@ void AsyncLogging::append(const char* logline, int len) {
 void AsyncLogging::threadFunc() {
     assert(running_ == true);
     latch_.countDown();
-    LogFile output(basename_);
+    LogFile output(basename_);//LogFile用于将日志写入文件
     BufferPtr newBuffer1(new Buffer);
     BufferPtr newBuffer2(new Buffer);
     newBuffer1->bzero();

@@ -6,3 +6,11 @@
 #define WEBSER_LOGGING_H
 
 #endif//WEBSER_LOGGING_H
+
+#pragma once
+#include <pthread.h>
+#include <stdio.h>
+#include <string>
+#include <string.h>
+#include "LogStream.h"
+
