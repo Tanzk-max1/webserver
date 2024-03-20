@@ -26,4 +26,6 @@ add_executable(webser main.cpp
         base/FileUtil.h
         base/Logging.cpp
         base/Logging.h
+        base/MemoryPool.h
+        base/MemoryPool.cpp
 )
