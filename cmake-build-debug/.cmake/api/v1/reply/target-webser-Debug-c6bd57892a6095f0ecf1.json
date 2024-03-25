@@ -131,7 +131,8 @@
 				18,
 				20,
 				22,
-				23
+				23,
+				26
 			]
 		}
 	],
@@ -278,6 +279,11 @@
 			"compileGroupIndex" : 0,
 			"path" : "test/test_MemoryPool.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "base/EventLoopThreadPool.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
