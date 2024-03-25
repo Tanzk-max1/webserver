@@ -62,7 +62,8 @@
 				17,
 				19,
 				21,
-				24
+				24,
+				25
 			]
 		}
 	],
@@ -109,7 +110,8 @@
 				17,
 				19,
 				21,
-				24
+				24,
+				25
 			]
 		},
 		{
@@ -269,6 +271,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "base/MemoryPool.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "test/test_MemoryPool.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
