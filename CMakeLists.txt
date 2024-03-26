@@ -30,4 +30,5 @@ add_executable(webser main.cpp
         base/MemoryPool.cpp
         test/test_MemoryPool.cpp
         base/EventLoopThreadPool.h
+        base/EventLoopThread.h
 )
