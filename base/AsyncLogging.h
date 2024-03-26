@@ -5,8 +5,6 @@
 #ifndef WEBSER_ASYNCLOGGING_H
 #define WEBSER_ASYNCLOGGING_H
 
-#endif//WEBSER_ASYNCLOGGING_H
-
 
 // @Author Lin Ya
 // @Email xxbbb@vip.qq.com

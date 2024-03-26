@@ -5,8 +5,6 @@
 #ifndef WEBSER_EVENTLOOPTHREAD_H
 #define WEBSER_EVENTLOOPTHREAD_H
 
-#endif//WEBSER_EVENTLOOPTHREAD_H
-
 #pragma once
 #include "../reactor/EventLoop.h"
 #include "../base/Condition.h"
@@ -25,3 +23,6 @@ public:
     sp_EventLoop loop_;
     std::unique_ptr<Thread, decltype(deleteElement<Thread>)*> thread_;
 };
+
+
+#endif//WEBSER_EVENTLOOPTHREAD_H

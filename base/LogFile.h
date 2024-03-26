@@ -5,4 +5,7 @@
 #ifndef WEBSER_LOGFILE_H
 #define WEBSER_LOGFILE_H
 
+
+
+
 #endif//WEBSER_LOGFILE_H

@@ -5,7 +5,6 @@
 #ifndef WEBSER_LOGGING_H
 #define WEBSER_LOGGING_H
 
-#endif//WEBSER_LOGGING_H
 
 #pragma once
 #include <pthread.h>
@@ -79,6 +78,9 @@ namespace lpg{
         Impl impl_;
     };
 }
+
+
+#endif//WEBSER_LOGGING_H
 
 //class Logger {
 //public:

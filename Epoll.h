@@ -5,8 +5,6 @@
 #ifndef WEBSER_EPOLL_H
 #define WEBSER_EPOLL_H
 
-#endif//WEBSER_EPOLL_H
-
 
 #pragma once
 #include <sys/epoll.h>
@@ -32,3 +30,7 @@ private:
     std::vector<epoll_event> events_;// epoll_wait()返回的活动事件都放在这个数组里
     std::unordered_map<int,sp_Channel> channelMap_;
 };
+
+
+
+#endif//WEBSER_EPOLL_H

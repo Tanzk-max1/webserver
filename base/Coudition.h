@@ -5,7 +5,6 @@
 #ifndef WEBSER_COUDITION_H
 #define WEBSER_COUDITION_H
 
-#endif//WEBSER_COUDITION_H
 
 
 #pragma once
@@ -38,3 +37,6 @@ private:
     MutexLock &mutex;
     pthread_cond_t cond;
 };
+
+
+#endif//WEBSER_COUDITION_H

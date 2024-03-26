@@ -5,8 +5,6 @@
 #ifndef WEBSER_THREAD_H
 #define WEBSER_THREAD_H
 
-#endif//WEBSER_THREAD_H
-
 
 #pragma once
 #include <pthread.h>
@@ -40,3 +38,6 @@ private:
     std::string name_;
     CountDownLatch latch_;
 };
+
+
+#endif//WEBSER_THREAD_H

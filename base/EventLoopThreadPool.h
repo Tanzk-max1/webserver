@@ -5,7 +5,6 @@
 #ifndef WEBSER_EVENTLOOPTHREADPOOL_H
 #define WEBSER_EVENTLOOPTHREADPOOL_H
 
-#endif//WEBSER_EVENTLOOPTHREADPOOL_H
 
 
 #pragma once
@@ -88,3 +87,6 @@ private:
     int index_;
     std::vector<std::shared_ptr<EventLoopThread>> threads_;
 };
+
+
+#endif//WEBSER_EVENTLOOPTHREADPOOL_H

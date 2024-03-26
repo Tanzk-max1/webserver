@@ -5,7 +5,6 @@
 #ifndef WEBSER_MUTEXLOCK_H
 #define WEBSER_MUTEXLOCK_H
 
-#endif//WEBSER_MUTEXLOCK_H
 
 
 #pragma once
@@ -41,3 +40,5 @@ public:
 private:
     MutexLock &mutex;
 };
+
+#endif//WEBSER_MUTEXLOCK_H

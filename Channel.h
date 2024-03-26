@@ -1,6 +1,10 @@
 //
 // Created by 15525 on 2024/3/8.
 //
+
+
+#ifndef WEBSER_CHANNEL_H
+#define WEBSER_CHANNEL_H
 #pragma once
 #include <sys/epoll.h>
 #include <sys/epoll.h>
@@ -14,10 +18,7 @@ class EventLoop;
 class HttpData;
 
 
-#ifndef WEBSER_CHANNEL_H
-#define WEBSER_CHANNEL_H
 
-#endif//WEBSER_CHANNEL_H
 
 class Channel {
 public:
@@ -104,3 +105,5 @@ void Channel::HandleEvents() {
     HandleUpdate();
 
 }
+
+#endif//WEBSER_CHANNEL_H

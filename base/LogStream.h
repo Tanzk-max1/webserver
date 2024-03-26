@@ -5,8 +5,6 @@
 #ifndef WEBSER_LOGSTREAM_H
 #define WEBSER_LOGSTREAM_H
 
-#endif//WEBSER_LOGSTREAM_H
-
 
 #pragma once
 // #pragma once 指令确保该头文件在编译过程中只被包含一次。

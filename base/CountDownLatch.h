@@ -5,7 +5,7 @@
 #ifndef WEBSER_COUNTDOWNLATCH_H
 #define WEBSER_COUNTDOWNLATCH_H
 
-#endif//WEBSER_COUNTDOWNLATCH_H
+
 
 #pragma once
 #include "Condition.h"
@@ -25,3 +25,5 @@ private:
     Condition condition_;
     int count_;
 };
+
+#endif//WEBSER_COUNTDOWNLATCH_H
