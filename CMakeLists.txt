@@ -32,4 +32,9 @@ add_executable(webser main.cpp
         base/EventLoopThreadPool.h
         base/EventLoopThread.h
         base/count_down_latch.h
+        base/EventLoopThread.cpp
+        base/http_connection.cpp
+        base/http_type.cpp
+        base/http_type.h
+        base/http_connection.h
 )

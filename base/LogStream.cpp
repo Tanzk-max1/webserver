@@ -13,7 +13,7 @@
 
 namespace log {
     template class FixedBuffer<kSmallBufferSize>;
-
+    //定义小BufferSize和大BufferSize的固定缓冲区类
     template class FixedBuffer<kLargeBufferSize>;
 //
 //LogStream& LogStream::operator<<(short v) {
@@ -21,6 +21,33 @@ namespace log {
 //    return *this;
 //}
 
+    //用于format int
+    static const char digits[] = "9876543210123456789";
+    static const char* zero = digits + 9;
+
+    template <typename T>
+    static size_t IntToString(char buffer[], T number) {
+        char* buf = buffer;
+
+        // 从数字的个位开始，逐个取出每个位上的数字并转换为字符
+        do {
+            int index = static_cast<int>(number % 10);
+            number /= 10;
+            *buf++ = zero[index];  // 将对应位上的数字转换为字符并存入缓冲区
+        } while (number != 0);
+
+        // 如果这个值是负数，就在缓冲区最后加上负号
+        if (number < 0) {
+            *buf++ = '-';
+        }
+        *buf = '\0';
+
+        // 由于先从个位开始存储，需要将缓冲区中的字符反转（从高位到低位）
+        std::reverse(buffer, buf);
+
+        // 返回转换后的字符串的长度
+        return buf - buffer;
+    }
 template <typename T>
 void LogStream::FormatInt(T number) {
     if (buffer_.capacity() >= kMaxNumberSize) {

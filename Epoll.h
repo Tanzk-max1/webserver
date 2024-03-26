@@ -7,13 +7,13 @@
 
 
 #pragma once
+#include "Channel.h"
+#include "../connection/httpConnection.h"
+#include "Timer.h"
 #include <sys/epoll.h>
 #include <memory>
 #include <unordered_map>
 #include <vector>
-#include "Channel.h"
-#include "HttpData.h"
-#include "Timer.h"
 
 class Epoll {
 public:
@@ -31,6 +31,7 @@ private:
     std::unordered_map<int,sp_Channel> channelMap_;
 };
 
+typedef std::shared_ptr<Epoll> sp_Epoll;
 
 
 #endif//WEBSER_EPOLL_H
