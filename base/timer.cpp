@@ -1,7 +1,7 @@
 //
 // Created by 15525 on 2024/3/26.
 //
-#include "timer/timer.h"
+#include "timer.h"
 
 #include <sys/time.h>
 #include <unistd.h>
@@ -9,8 +9,8 @@
 #include <memory>
 #include <queue>
 
-#include "http/http_connection.h"
-#include "log/logging.h"
+#include "http_connection.h"
+#include "logging.h"
 
 namespace timer {
 
